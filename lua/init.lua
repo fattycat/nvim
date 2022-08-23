@@ -1,9 +1,6 @@
 
 require("basic")
 require("keymaps")
-require("nvim_tree")
-
-require('telescope').load_extension('projects')
 
 require("packer").startup(function(use)
     use {'wbthomason/packer.nvim'}
@@ -30,6 +27,9 @@ require("packer").startup(function(use)
     use {
         "kyazdani42/nvim-tree.lua",
         requires = {"kyazdani42/nvim-web-devicons"}
+        config = function()
+            require("nvim_tree")
+        end
     }
     use {'neoclide/coc.nvim', branch = 'master'}
 
@@ -37,6 +37,9 @@ require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         tag = "0.1.0",
         requires = {"nvim-lua/plenary.nvim"}
+        config = function()
+            require('telescope').load_extension('projects')
+        end
     }
 
     use {
